@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: "If you use this code or data in your research, please cite the paper below."
+type: software
+title: "Reproducibility Package: Computational Methods for RS OBB Detection"
+abstract: >
+  Complete reproducibility package for a PRISMA-compliant systematic review
+  of 112 peer-reviewed works (2014-2025) on data augmentation and labeling
+  for oriented object detection in remote sensing imagery. Includes
+  meta-analysis code, rotation bug audit tools, BOI calculator, and
+  supplementary data tables S1-S7.
+authors:
+  - family-names: Madaan
+    given-names: Nishi
+    email: nishimaliknitj@gmail.com
+    affiliation: >
+      Department of Computer Science and Engineering,
+      Galgotias University, Greater Noida, India
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Malik
+    given-names: Rahul
+    affiliation: >
+      Department of Computer Science and Engineering,
+      Galgotias University, Greater Noida, India
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/nishimaliknitj/RS-OBB-Review-2025"
+url: "https://github.com/nishimaliknitj/RS-OBB-Review-2025"
+license: MIT
+version: "1.0.0"
+date-released: "2025-06-01"
+keywords:
+  - remote sensing
+  - oriented object detection
+  - data augmentation
+  - systematic review
+  - meta-analysis
+  - OBB
+  - DOTA
+  - benchmark overfitting
+  - GAN paradox
+  - rotation bug
+preferred-citation:
+  type: article
+  title: >
+    Computational Methods for Data Augmentation and Labeling in Oriented
+    Object Detection from Remote Sensing Imagery: A Critical Review of
+    Algorithms, Documented Failures, and Engineering Guidelines
+  authors:
+    - family-names: Madaan
+      given-names: Nishi
+    - family-names: Malik
+      given-names: Rahul
+  journal: "Applied Intelligence"
+  publisher:
+    name: Springer
+  year: 2025
+  status: "under-review"
+  abstract: >
+    We present a PRISMA-compliant systematic review of 112 peer-reviewed
+    works spanning 2014-2025, synthesised through a DerSimonian-Laird
+    random-effects meta-analysis of 387 effect-size observations
+    (I^2=73.4%, mean mAP gain +6.9%, 95% CI: 5.8-8.0%). Four previously
+    undocumented field-wide failures are reported: a 59% OBB rotation
+    implementation error rate, the GAN Paradox (r=-0.89, p<0.001), the
+    Benchmark Overfitting Index (BOI), and five cardinal evaluation failures
+    inflating reported gains by 1.2-16x.

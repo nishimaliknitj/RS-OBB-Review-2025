@@ -1,0 +1,87 @@
+name: Regenerate Figures
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'analysis/python/figures_gen.py'
+      - 'supplementary/**'
+  workflow_dispatch:
+
+jobs:
+  figures:
+    name: Reproduce all paper figures
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get install -y fonts-liberation
+
+      - name: Set up R for forest plot
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.3.1"
+
+      - name: Install R metafor
+        run: |
+          Rscript -e "install.packages(c('metafor','readxl'),
+            repos='https://cloud.r-project.org', quiet=TRUE)"
+
+      - name: Generate Python figures
+        run: |
+          python analysis/python/figures_gen.py
+          echo "Generated figures:"
+          ls -lh paper/figures/
+
+      - name: Generate R forest + funnel plots
+        run: |
+          Rscript analysis/r/publication_bias.R
+          Rscript analysis/r/subgroup_analysis.R
+
+      - name: Verify all 10 figures exist
+        run: |
+          EXPECTED=(
+            "fig02_class_imbalance.pdf"
+            "fig03_forest_plot.pdf"
+            "fig07_gan_paradox.pdf"
+            "fig08_cumulative.pdf"
+            "fig08_ablation.pdf"
+            "fig09_interaction.pdf"
+            "fig09_results.pdf"
+            "fig10_scale.pdf"
+            "fig11_convergence.pdf"
+            "fig12_boi.pdf"
+          )
+          MISSING=0
+          for f in "${EXPECTED[@]}"; do
+            if [ -f "paper/figures/$f" ]; then
+              echo "  ✓ $f"
+            else
+              echo "  ✗ MISSING: $f"
+              MISSING=$((MISSING+1))
+            fi
+          done
+          echo ""
+          if [ "$MISSING" -gt 0 ]; then
+            echo "$MISSING figure(s) missing!"
+            exit 1
+          else
+            echo "All figures present."
+          fi
+
+      - name: Upload figure artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-figures
+          path: paper/figures/
+          retention-days: 30
