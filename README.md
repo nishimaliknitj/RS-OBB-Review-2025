@@ -141,7 +141,7 @@ Quality-weighted: mu=+5.82, CI=[4.91, 6.73]
              A Critical Review of Algorithms, Documented Failures,
              and Engineering Guidelines},
   author  = {Madaan, Nishi and Malik, Rahul},
-  journal = {Applied Intelligence},
+  journal = {ACME},
   year    = {2025},
   note    = {Under Review},
   url     = {https://github.com/nishimaliknitj/RS-OBB-Review-2025}
