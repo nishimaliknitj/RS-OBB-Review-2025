@@ -4,7 +4,6 @@
 [![PRISMA 2020](https://img.shields.io/badge/PRISMA-2020%20Compliant-brightgreen)](supplementary/)
 [![R Version](https://img.shields.io/badge/R-4.3.1-blue.svg)](analysis/r/)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](analysis/python/)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](tests/)
 [![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fxxxx-orange)](https://doi.org/10.xxxx/xxxx)
 
 >
