@@ -7,10 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](tests/)
 [![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fxxxx-orange)](https://doi.org/10.xxxx/xxxx)
 
-> **Authors:** Nishi Madaan · Rahul Malik  
-> **Affiliation:** Department of Computer Science and Engineering, Galgotias University, Greater Noida, India  
-> **Journal:** Applied Intelligence (Springer) — Under Review  
-> **Submission:** 2025
+>
 
 ---
 
